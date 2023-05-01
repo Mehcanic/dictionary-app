@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  font-family: 'Inconsolata', monospace;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Lora', serif;
+*/
+
+.font-sansSerif {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Lora', serif;
+}
+
+.font-mono {
+  font-family: 'Inconsolata', monospace;
+}
