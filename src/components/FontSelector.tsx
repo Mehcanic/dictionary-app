@@ -18,7 +18,7 @@ const fonts = [
     <select
       value={selectedFont}
       onChange={(e) => onFontChange(e.target.value)}
-      className="border p-2 rounded"
+      className=""
     >
       {fonts.map((font) => (
         <option key={font.name} value={font.className}>
