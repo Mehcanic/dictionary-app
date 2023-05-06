@@ -33,7 +33,7 @@ module.exports = {
           light: '#F4F4F4',
           dark: '#1F1F1F',
         },
-        brakeLine: {
+        decorativeLine: {
           light: '#E9E9E9',
           dark: '#3A3A3A',
         },
