@@ -61,6 +61,7 @@ module.exports = {
         normal: 400,
         bold: 700,
       },
+      fill: (theme) => theme('textColor'),
     },
   plugins: [],
   }
