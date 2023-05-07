@@ -1,12 +1,11 @@
 import { useState } from "react"
 
-import Header from "./components/Header"
-// import SearchWord from "./components/SearchWord"
-// import SearchBar from "./components/SearchBar"
-// import SearchResultsNoun from "./components/SearchResultsNoun"
-// import SearchResultsVerb from "./components/SearchResultsVerb"
+import Header from "./components/layout/Header"
+import Main from "./components/layout/Main"
+import Footer from "./components/layout/Footer"
 
-import { useTheme } from "./components/useTheme"
+
+import { useTheme } from "./components/common/useTheme"
 
 function App() {
   const { theme } = useTheme()
@@ -16,11 +15,8 @@ function App() {
     <div className={`w-[768px] h-screen mx-auto ${theme === 'dark' ? 'dark' : ''} ${selectedFont}`}>
       <div className="h-full bg-primary-light dark:bg-background-dark">
         <Header selectedFont={selectedFont} onFontChange={setSelectedFont} />
-        {/* <SearchBar /> */}
-        {/* <SearchWord /> */}
-        {/* <SearchResultsNoun /> */}
-        {/* <SearchResultsVerb /> */}
-        {/* <Footer /> */}
+        <Main />
+        <Footer />
       </div>
     </div>
   )

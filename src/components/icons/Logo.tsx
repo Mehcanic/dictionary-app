@@ -4,13 +4,14 @@ type LogoIconProps = React.SVGProps<SVGSVGElement> & {
   stroke?: string;
 };
 
-const LogoIcon: React.FC<LogoIconProps> = () => {
+const LogoIcon: React.FC<LogoIconProps> = ({...props}) => {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
       width="34" 
       height="38" 
       viewBox="0 0 34 38"
+      {...props}
       >
       <g 
         fill="none" 

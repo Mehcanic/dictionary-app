@@ -1,9 +1,9 @@
 
-import FontSelector from './FontSelector'
-import ThemeSwitcher from './ThemeSwitcher';
+import FontSelector from '../common/FontSelector'
+import ThemeSwitcher from '../common/ThemeSwitcher';
 
-import Icon from './Icon';
-import DecorativeLine from './DecorativeLine';
+import Icon from '../common/Icon';
+import DecorativeLine from '../common/DecorativeLine';
 
 interface HeaderProps {
   onFontChange: (font: string) => void;

@@ -21,7 +21,7 @@ const FontSelector: React.FC<FontSelectorProps> = ({ selectedFont, onFontChange 
   ]
 
   return (
-    <div className='relative inline-block '>
+    <div className='relative inline-block'>
       <select
         value={selectedFont}
         onChange={(e) => onFontChange(e.target.value)}
@@ -30,7 +30,7 @@ const FontSelector: React.FC<FontSelectorProps> = ({ selectedFont, onFontChange 
           minWidth: '36px',
           maxWidth: '120px', 
         }}
-        className='bg-background-light dark:bg-background-dark text-fontPrimary-light dark:text-fontPrimary-dark appearance-none pr-8 text-center'
+        className='bg-background-light dark:bg-background-dark text-fontPrimary-light dark:text-fontPrimary-dark appearance-none pr-8 text-center font-bold'
         >
         {fonts.map((font) => (
           <option key={font.name} value={font.className}>

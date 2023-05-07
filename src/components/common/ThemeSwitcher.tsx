@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme } from '../components/useTheme'
+import { useTheme } from './useTheme'
 
 import Icon from './Icon'
 
@@ -22,7 +22,7 @@ const  ThemeSwitcher: React.FC= () => {
               style={{ top: '0.19rem' }} 
               className="absolute left-1 w-3.5 h-3.5 rounded-full bg-fontPrimary-dark dark:bg-fontPrimary-dark transition-all duration-300 ease-in-out transform translate-x-0 dark:translate-x-[1.1rem]"></div>
           </label>
-          <Icon svg='moon' className='fill-current w-5 h-5 text-fontSecondary-light dark:text-fontAccent-dark' stroke='' />
+          <Icon svg='moon' className='fill-current w-5 h-5 text-fontSecondary-light dark:text-fontAccent-dark' />
         </div>
       </div>
     </div>
