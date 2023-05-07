@@ -1,20 +1,19 @@
-import React from 'react'
+
+
+import SearchBar from "../common/SearchBar"
+import SearchWord from "../common/SearchWord"
+import SearchResultsNoun from "../common/SearchResultsNoun"
+import SearchResultsVerb from "../common/SearchResultsVerb"
 
 function Main() {
   return (
-    <div>Main</div>
+    <>
+      <SearchBar />
+      <SearchWord />
+      <SearchResultsNoun />
+      <SearchResultsVerb />
+    </>
   )
 }
 
 export default Main
-
-
-// import SearchWord from "./components/SearchWord"
-// import SearchBar from "./components/SearchBar"
-// import SearchResultsNoun from "./components/SearchResultsNoun"
-// import SearchResultsVerb from "./components/SearchResultsVerb"
-
-{/* <SearchBar /> */}
-{/* <SearchWord /> */}
-{/* <SearchResultsNoun /> */}
-{/* <SearchResultsVerb /> */}
