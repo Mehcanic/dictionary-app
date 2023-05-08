@@ -7,48 +7,39 @@ interface SearchBarProps {
 }
 
 function SearchBar({ onSearch }: SearchBarProps) {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
-
-
-
-
-  const fetchSearchData = async () => {
-    setLoading(true);
-    setError(false);
-
-    try {
-      const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`
-      );
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status} ${response.statusText}`);
-      }
-
-      const data = await response.json();
-      onSearch(data);
-    } catch (error) {
-      // setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (searchTerm) {
-      fetchSearchData()
-    }
-  }, [searchTerm])
+    const fetchData = async () => {
+      setLoading(true);
 
+      try {
+        const response = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/hello');
+
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   if (loading) {
-    return <p>Loading...</p>
+    return <p>Loading...</p>;
   }
 
   if (error) {
-    return <p>{error}</p>
+    return <p>Error: {error}</p>;
   }
   
 
