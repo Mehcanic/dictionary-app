@@ -2,14 +2,15 @@ import  React, { useEffect, useState } from "react"
 
 import Icon from "./Icon"
 
-interface DictionaryData {
+import { DictionaryData } from "../types/DictionaryData"
+
+interface SearchBarProps {
   word?: string;
   definition?: string;
-  updateData?: (data: DictionaryData[] | null) => void;
-  data?: DictionaryData[] | null;
+  onSearch: (data: DictionaryData) => void;
 }
 
-const SearchBar: React.FC<DictionaryData> = ({ updateData }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [data, setData] = useState([]);
   const [word, setWord] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,7 @@ const SearchBar: React.FC<DictionaryData> = ({ updateData }) => {
         const data = await response.json();
         setData(data);
         setLoading(false);
+        onSearch(data[0]);
       } catch (error) {
         setError('Error fetching data');
         setLoading(false);
@@ -57,23 +59,13 @@ const SearchBar: React.FC<DictionaryData> = ({ updateData }) => {
         onChange={handleInputChange}
         />
       <Icon svg='search' className="absolute right-12 top-6 w-4" />
-        {data && data.map((item: any) => {
+        {/* {data && data.map((item: any) => {
           return (
             <div className="flex flex-col">
               <h1>{item.word}</h1>
-              {item.meanings.map((meaning: any) => (
-                <div key={meaning.partOfSpeech}>
-                  <h2>{meaning.partOfSpeech}</h2>
-                  <ul>
-                    {meaning.definitions.map((definition: any) => (
-                      <li key={definition.definition}>{definition.definition}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
             </div>
           )
-        })}
+        })} */}
       </form>
     </div>
   )

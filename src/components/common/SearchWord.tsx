@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+
+import { DictionaryData } from '../types/DictionaryData';
 
 interface SearchWordProps {
-  data: [];
+  searchData: DictionaryData | null;
 }
 
-const SearchWord: React.FC<SearchWordProps> = ({ data }) => {
+const SearchWord: React.FC<SearchWordProps> = ({ searchData }) => {
+
+  useEffect(() => {
+    console.log(searchData?.word)
+  }, [searchData])
+
+  if (searchData === null) {
+    return <div>No data</div>;
+  }
+
   return (
     <div>
-      {/* {data.map((item: any) => (
-        <div key={item.id}>
-          <h1>{item.word}</h1>
-          </div>
-      ))} */}
+      <h1>{searchData.word}</h1>
     </div>
   )
 }
