@@ -1,6 +1,11 @@
 import React from 'react'
+import DictionaryData from '../layout/Main'
 
-const SearchResultsVerb = () => {
+interface SearchResultsVerbProps {
+  data: typeof DictionaryData[] | null;
+}
+
+const SearchResultsVerb: React.FC<SearchResultsVerbProps> = ({ data }) => {
   return (
     <div>SearchResultsVerb</div>
   )
