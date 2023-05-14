@@ -2,19 +2,14 @@ import React from 'react'
 
 
 interface DecorativeLineProps {
-  width: string;
-  height: string;
+  className?: string;
 }
 
-const DecorativeLine: React.FC<DecorativeLineProps> = ({ width, height }) => {
+const DecorativeLine: React.FC<DecorativeLineProps> = ({ className }) => {
 
   return (
     <div 
-      className={`inline-block border border-decorativeLine-light`}
-      style={{
-        width: width,
-        height: height,
-      }}
+      className={`inline-block border ${className}`}
     >
     </div>
   )

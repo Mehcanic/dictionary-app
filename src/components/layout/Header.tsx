@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ selectedFont, onFontChange }) => {
           onFontChange={onFontChange}
           className=''
           />
-        <DecorativeLine width='1px' height='2rem' />
+        <DecorativeLine className='w-[1px] h-8 border-decorativeLine-light dark:border-decorativeLine-light'/>
         <ThemeSwitcher />
       </div>
     </header>

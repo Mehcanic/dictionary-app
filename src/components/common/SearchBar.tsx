@@ -8,9 +8,10 @@ interface SearchBarProps {
   word?: string;
   definition?: string;
   onSearch: (data: DictionaryData) => void;
+  onError: (error: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onError }) => {
   const [data, setData] = useState([]);
   const [word, setWord] = useState<string>("");
   const [loading, setLoading] = useState(true);
@@ -28,6 +29,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       } catch (error) {
         setError('Error fetching data');
         setLoading(false);
+        onError('Error fetching data')
       }
     } else {
       setData([]);
@@ -48,24 +50,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   }, []);
 
   return (
-    <div className="relative">
-      <form onSubmit={handleSubmit}>
-
-      <input
-        type="search"
-        className="rounded-2xl w-[736px] h-16 px-6 py-5 bg-inputBackground-light dark:bg-inputBackground-dark focus:border-fontAccent-light"
-        placeholder="Search for any word..."
-        value={word}
-        onChange={handleInputChange}
-        />
-      <Icon svg='search' className="absolute right-12 top-6 w-4" />
-        {/* {data && data.map((item: any) => {
-          return (
-            <div className="flex flex-col">
-              <h1>{item.word}</h1>
-            </div>
-          )
-        })} */}
+    <div className="relative flex justify-center">
+      <form onSubmit={handleSubmit} className="w-full">
+        <input
+          type="search"
+          className="rounded-2xl w-full h-16 mx-auto px-6 py-5 bg-inputBackground-light dark:bg-inputBackground-dark focus:border-fontAccent-light"
+          placeholder="Search for any word..."
+          value={word}
+          onChange={handleInputChange}
+          />
+        <Icon svg='search' className="absolute right-8 top-6 w-4" />
       </form>
     </div>
   )
