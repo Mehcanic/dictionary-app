@@ -16,6 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onError }) => {
   const [word, setWord] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [wasEnterPressed, setWasEnterPressed] = useState(false);
 
   const fetchData = async () => {
     if (word) {
@@ -26,13 +27,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onError }) => {
         setData(data);
         setLoading(false);
         onSearch(data[0]);
+        setError(null);
       } catch (error) {
         setError('Error fetching data');
         setLoading(false);
         onError('Error fetching data')
       }
-    } else {
-      setData([]);
+    } else if (wasEnterPressed) {
+      setError(`Whoops, can't be empty...`);
     }
   };
 
@@ -45,6 +47,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onError }) => {
     setWord(event.target.value);
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' && word === '') {
+      setWasEnterPressed(true);
+      fetchData();
+    }
+  }
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -54,12 +63,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onError }) => {
       <form onSubmit={handleSubmit} className="w-full">
         <input
           type="search"
-          className="rounded-2xl w-full h-16 mx-auto px-6 py-5 bg-inputBackground-light dark:bg-inputBackground-dark focus:border-fontAccent-light"
+          // className="rounded-2xl w-full h-16 mx-auto px-6 py-5 bg-inputBackground-light dark:bg-inputBackground-dark focus:outline-fontAccent-light visited:outline-error-light"
+          className={`rounded-2xl w-full h-16 mx-auto px-6 py-5 
+            ${error ? "bg-inputBackground-light dark:bg-inputBackground-dark focus:outline-error-light dark:focus:ring-error-light dark:focus:outline-error-light dark:outline-error-light visited:outline-error-light dark:focus:ring-0" : "bg-inputBackground-light dark:bg-inputBackground-dark focus:outline-fontAccent-light dark:focus:ring-transparent"}`}
           placeholder="Search for any word..."
           value={word}
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           />
-        <Icon svg='search' className="absolute right-8 top-6 w-4" />
+        {error && <p className="text-red-500 mt-2">{error}</p>}
+        {/* <Icon svg='search' className="absolute right-8 top-6 w-4" /> */}
       </form>
     </div>
   )

@@ -55,7 +55,7 @@ module.exports = {
         headingMedium: ['29px'],
         headingSmall: ['24px'],
         bodyMedium: ['24px'],
-        bodySmall: ['17px'],
+        bodySmall: ['18px'],
       },
       fontWeight: {
         normal: 400,
@@ -64,5 +64,10 @@ module.exports = {
       fill: (theme) => theme('textColor'),
     },
   plugins: [],
-  }
+  },
+  variants: {
+    extend: {
+      borderColor: ['focus'],
+    },
+  },
 }
