@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import SearchBar from '../common/SearchBar';
+import SearchResults from '../common/SearchResults'
 import SearchWord from '../common/SearchWord';
 import SearchResultsNoun from '../common/SearchResultsNoun';
 import SearchResultsVerb from '../common/SearchResultsVerb';
@@ -34,21 +35,16 @@ const Main: React.FC = () => {
       <SearchBar onSearch={handleSearch} onError={handleError} />
       { searchData ? (
         <>
-          <SearchResoults searchData={searchData} />
-          <SearchWord searchData={searchData} />
-          <SearchResultsNoun searchData={searchData} />
-          <SearchResultsVerb searchData={searchData} />
-          <Source searchData={searchData}/>
+          <SearchResults searchData={searchData} />
+          {/* <SearchWord searchData={searchData} /> */}
+          {/* <SearchResultsNoun searchData={searchData} /> */}
+          {/* <SearchResultsVerb searchData={searchData} /> */}
+          {/* <Source searchData={searchData}/> */}
         </>
         ) : (
           <NoDefinitionsFound />
         )
       }
-      {/* <SearchWord searchData={searchData} />
-      <SearchResultsNoun searchData={searchData} />
-      <SearchResultsVerb searchData={searchData} />
-      <Source searchData={searchData}/>
-      <NoDefinitionsFound /> */}
     </main>
   );
 };
