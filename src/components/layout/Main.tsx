@@ -30,10 +30,11 @@ const Main: React.FC = () => {
 
 
   return (
-    <main className='flex flex-col items-center max-w-[736px] mx-auto'>
+    <main className='flex flex-col max-w-[736px] mx-auto'>
       <SearchBar onSearch={handleSearch} onError={handleError} />
       { searchData ? (
         <>
+          <SearchResoults searchData={searchData} />
           <SearchWord searchData={searchData} />
           <SearchResultsNoun searchData={searchData} />
           <SearchResultsVerb searchData={searchData} />
