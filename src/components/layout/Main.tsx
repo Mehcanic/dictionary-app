@@ -30,7 +30,7 @@ const Main: React.FC = () => {
 
 
   return (
-    <div>
+    <main className='flex flex-col items-center max-w-[736px] mx-auto'>
       <SearchBar onSearch={handleSearch} onError={handleError} />
       { searchData ? (
         <>
@@ -48,7 +48,7 @@ const Main: React.FC = () => {
       <SearchResultsVerb searchData={searchData} />
       <Source searchData={searchData}/>
       <NoDefinitionsFound /> */}
-    </div>
+    </main>
   );
 };
 

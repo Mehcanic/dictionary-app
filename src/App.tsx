@@ -10,8 +10,8 @@ function App() {
   const [selectedFont, setSelectedFont] = useState('font-sansSerif')
 
   return (
-    <div className={`w-[768px] h-screen mx-auto ${theme === 'dark' ? 'dark' : ''} ${selectedFont}`}>
-      <div className="h-full bg-primary-light dark:bg-background-dark">
+    <div className={`w-full h-screen mx-auto ${theme === 'dark' ? 'dark' : ''} ${selectedFont}`}>
+      <div className="w-full h-full bg-primary-light dark:bg-background-dark">
         <Header selectedFont={selectedFont} onFontChange={setSelectedFont} />
         <Main />
       </div>

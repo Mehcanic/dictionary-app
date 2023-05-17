@@ -11,6 +11,7 @@ interface SearchResultsNounProps {
 
 const SearchResultsNoun: React.FC<SearchResultsNounProps> = ({ searchData }) => {
 
+  // TODO map over definitions and return only noun
   const nounMeanings = searchData?.meanings.filter(meaning => meaning.partOfSpeech === 'noun');
 
 

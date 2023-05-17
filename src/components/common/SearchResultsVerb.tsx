@@ -7,6 +7,9 @@ interface SearchResultsVerbProps {
 }
 
 const SearchResultsVerb: React.FC<SearchResultsVerbProps> = ({ searchData }) => {
+
+
+  // TODO map over definitions and return only verb
   return (
     <div>
       <p>

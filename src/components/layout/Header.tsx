@@ -14,7 +14,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ selectedFont, onFontChange }) => {
 
   return (
-    <header className='flex flex-row justify-between items-center max-w-[736px] h-16 m-6 py-16 '>
+    <header className='flex flex-row justify-between items-center max-w-[736px] h-16 mx-auto py-16 '>
       <div className='flex w-4/6'>
         <Icon svg='logo' className='w-8 h-8 text-fontSecondary-light' />
       </div>
