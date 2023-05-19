@@ -14,4 +14,5 @@ export interface DictionaryData {
     }[];
     synonyms: string[];
   }[];
+  sourceUrls: string[];
 }

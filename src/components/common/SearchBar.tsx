@@ -78,10 +78,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onError }) => {
           focus:outline-fontAccent-light 
           visited:outline-error-light
           ${error ? "focus:outline-error-light dark:focus:ring-error-light dark:focus:outline-error-light dark:outline-error-light visited:outline-error-light dark:focus:ring-0" : "focus:outline-fontAccent-light dark:focus:ring-transparent"}
-          
           `}
-          // className={`rounded-2xl w-full h-16 mx-auto px-6 py-5 
-          //   ${error ? "bg-inputBackground-light dark:bg-inputBackground-dark focus:outline-error-light dark:focus:ring-error-light dark:focus:outline-error-light dark:outline-error-light visited:outline-error-light dark:focus:ring-0" : "bg-inputBackground-light dark:bg-inputBackground-dark focus:outline-fontAccent-light dark:focus:ring-transparent"}`}
           placeholder="Search for any word..."
           value={word}
           onChange={handleInputChange}

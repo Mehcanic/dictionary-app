@@ -35,8 +35,8 @@ const Main: React.FC = () => {
       <SearchBar onSearch={handleSearch} onError={handleError} />
       { searchData ? (
         <>
+          <SearchWord searchData={searchData} />
           <SearchResults searchData={searchData} />
-          {/* <SearchWord searchData={searchData} /> */}
           {/* <SearchResultsNoun searchData={searchData} /> */}
           {/* <SearchResultsVerb searchData={searchData} /> */}
           {/* <Source searchData={searchData}/> */}
